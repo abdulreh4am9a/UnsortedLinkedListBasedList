@@ -120,4 +120,20 @@ public:
 		it = it->next;
 		return val;
 	}
+	void operator=(const list<T>& rhs) {
+		make_empty();
+		it = NULL;
+		node<T>* temp;
+		temp = rhs.head;
+		while (temp != NULL) {
+			insert(temp->data);
+			temp = temp->next;
+		}
+	}
+	list(const list<T>& rhs) {
+		head = NULL;
+		n = 0;
+		it = NULL;
+		operator=(rhs);
+	}
 };
